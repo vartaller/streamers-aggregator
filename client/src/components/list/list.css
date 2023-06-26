@@ -1,0 +1,21 @@
+.streamers-list-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: var(--dl-space-space-halfunit);
+  position: relative;
+  max-width: var(--dl-size-size-maxwidth);
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: var(--dl-color-primary-500);
+}
+.streamers-list-container1 {
+  width: 100%;
+  display: flex;
+  max-height: var(--dl-size-size-maxwidth);
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-items: flex-start;
+  flex-direction: column;
+}
+

@@ -1,0 +1,26 @@
+.button-container {
+  display: flex;
+  position: relative;
+}
+
+.button-button {
+  color: var(--dl-color-gray-white);
+  font-size: 24px;
+  transition: 0.3s;
+  border-width: 0px;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-primary-500);
+}
+
+.button-button:hover {
+  /* color: #dac6da; */
+  background-color: #376ff3ca;
+}
+
+.button-button:active {
+  background-color: #2965f3;
+}
+
+.button-root-class-name {
+  align-self: flex-end;
+}
