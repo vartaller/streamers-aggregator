@@ -1,19 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './button.css';
-
-type ButtonProps = {
-  btnName?: string;
-  rootClassName?: string;
-};
+import { TEXT } from '../../utils/constants/dictionary';
+import { ButtonProps } from './button.type';
 
 const Button: React.FC<ButtonProps> = ({
-  btnName = 'Submit',
+  btnName = TEXT.BUTTON.SUBMIT,
   rootClassName = '',
 }) => {
   return (
-    <div className={`button-container ${rootClassName}`}>
-      <button type="button" className="button-button button">
+    <div className={`button-container`}>
+      <button type="submit" className="button-button button">
         {btnName}
       </button>
     </div>

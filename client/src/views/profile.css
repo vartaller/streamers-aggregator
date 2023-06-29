@@ -6,10 +6,12 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: var(--dl-color-gray-black);
+  background-color: var(--color-gray-black);
 }
 
 .card-page {
   align-self: center;
-  padding: var(--dl-space-space-oneandhalfunits);
+  padding: var(--space-space-oneandhalfunits);
+  width: 100%;
+  max-width: var(--size-width-max);
 }

@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './header.css';
+import { TEXT } from '../../utils/constants/dictionary';
+import { HeaderProps } from './header.type';
 
-type HeaderProps = {
-  rootClassName?: string;
-  pageTitle?: string;
-};
-
-const Header: React.FC<HeaderProps> = ({ pageTitle = 'Dare Drop' }) => {
+const Header: React.FC<HeaderProps> = ({
+  pageTitle = TEXT.GENERAL.PAGE_TITLE,
+}) => {
   return (
     <Link to="/" className="header-container">
       <header className="header-header">
@@ -20,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({ pageTitle = 'Dare Drop' }) => {
 };
 
 Header.propTypes = {
-  rootClassName: PropTypes.string,
   pageTitle: PropTypes.string,
 };
 

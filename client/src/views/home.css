@@ -6,28 +6,29 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: var(--dl-color-gray-black);
+  background-color: var(--color-gray-black);
 }
 .home-blog {
-  gap: var(--dl-space-space-twounits);
+  gap: var(--space-space-twounits);
   width: 100%;
   display: flex;
-  padding: var(--dl-space-space-oneandhalfunits);
-  max-width: var(--dl-size-size-maxwidth);
+  padding: var(--space-space-oneandhalfunits);
+  max-width: var(--size-width-max);
   align-self: center;
   flex-direction: column;
 }
+
 @media(max-width: 767px) {
   .home-blog {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
+    padding-left: var(--space-space-twounits);
+    padding-right: var(--space-space-twounits);
   }
 }
 @media(max-width: 479px) {
   .home-blog {
-    padding-top: var(--dl-space-space-twounits);
-    padding-left: var(--dl-space-space-unit);
-    padding-right: var(--dl-space-space-unit);
-    padding-bottom: var(--dl-space-space-twounits);
+    padding-top: var(--space-space-twounits);
+    padding-left: var(--space-space-unit);
+    padding-right: var(--space-space-unit);
+    padding-bottom: var(--space-space-twounits);
   }
 }

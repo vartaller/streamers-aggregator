@@ -1,12 +1,10 @@
 .card-blog-post-card {
   width: 100%;
   display: flex;
-  max-width: var(--dl-size-size-maxwidth);
   box-shadow: 4px 4px 10px 0px rgba(18, 18, 18, 0.1);
   align-items: stretch;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: var(--dl-color-gray-white);
+  background-color: var(--color-gray-white);
 }
 
 .card-image {
@@ -18,27 +16,29 @@
 }
 
 .card-container {
+  width: 100%;
   display: flex;
   align-items: flex-start;
-  padding-top: var(--dl-space-space-twounits);
-  padding-left: var(--dl-space-space-twounits);
-  padding-right: var(--dl-space-space-twounits);
+  padding-top: var(--space-space-twounits);
+  padding-left: var(--space-space-twounits);
+  padding-right: var(--space-space-twounits);
   flex-direction: column;
-  padding-bottom: var(--dl-space-space-twounits);
+  padding-bottom: var(--space-space-twounits);
   justify-content: space-between;
 }
 
 .card-name {
-  margin-bottom: var(--dl-space-space-twounits);
+  margin-bottom: var(--space-space-twounits);
 }
 
 .card-text {
-  color: var(--dl-color-gray-500);
-  font-size: 1.25rem;
-  margin-bottom: var(--dl-space-space-twounits);
+  color: var(--color-gray-500);
+  font-size: var(--font-size-medium);
+  margin-bottom: var(--space-space-twounits);
+  word-wrap: break-word;
 }
 
-.card-container1 {
+.card-container-platform {
   width: 100%;
   display: flex;
   align-items: center;
@@ -51,21 +51,22 @@
   align-items: center;
 }
 
-.card-image1 {
-  width: var(--dl-size-size-small);
-  height: var(--dl-size-size-small);
+.card-image-platform {
+  width: var(--size-size-small);
+  height: var(--size-size-small);
   object-fit: cover;
-  border-radius: var(--dl-radius-radius-round);
+  border-radius: var(--radius-radius-round);
 }
 
-.card-text1 {
+.card-text-platform {
   font-style: normal;
-  font-weight: 600;
-  margin-left: var(--dl-space-space-halfunit);
+  font-weight: var(--font-weight-medium);
+  margin-left: var(--space-space-halfunit);
 }
 
 @media(max-width: 991px) {
   .card-blog-post-card {
+    width: auto;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -82,7 +83,7 @@
 }
 
 @media(max-width: 479px) {
-  .card-container1 {
+  .card-container-platform {
     padding-left: 0px;
     padding-right: 0px;
   }

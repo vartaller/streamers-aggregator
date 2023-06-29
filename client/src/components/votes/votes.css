@@ -1,5 +1,6 @@
 .votes-votes {
-  width: var(--dl-size-size-xlarge);
+  width: var(--size-size-xxlarge);
+  min-width: var(--size-size-xxlarge);
   display: flex;
   position: relative;
   align-self: flex-end;
@@ -7,71 +8,79 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.votes-container {
+.likes-container {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
   justify-content: space-between;
 }
-.votes-text {
-  color: var(--dl-color-primary-500);
-  font-size: 24px;
+.votes-rate-text {
+  font-size: var(--font-size-medium);
   font-style: normal;
-  font-weight: 900;
+  font-weight: var(--font-weight-xsmall);
 }
-.votes-icon {
+
+.likes-color {
+  color: var(--color-primary-500);
+}
+.like-icon {
   width: 24px;
   height: 24px;
   align-self: flex-start;
   transition: 0.3s;
-  margin-left: var(--dl-space-space-halfunit);
-  margin-right: var(--dl-space-space-halfunit);
+  margin-left: var(--space-space-halfunit);
+  margin-right: var(--space-space-halfunit);
 }
-.votes-icon:hover {
-  fill: var(--dl-color-primary-500);
+.like-icon:hover {
+  fill: var(--color-primary-500);
 }
-.votes-icon:active {
-  fill: var(--dl-color-primary-500);
+.like-icon:active {
+  transform: rotate(30deg);
 }
-.votes-container1 {
+.dislikes-container {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
   justify-content: space-between;
 }
-.votes-icon2 {
+.dislike-icon {
   width: 24px;
   height: 24px;
   align-self: flex-end;
   transition: 0.3s;
-  margin-left: var(--dl-space-space-halfunit);
-  margin-right: var(--dl-space-space-halfunit);
+  margin-left: var(--space-space-halfunit);
+  margin-right: var(--space-space-halfunit);
 }
-.votes-icon2:hover {
-  fill: var(--dl-color-primary-100);
+.dislike-icon:hover {
+  fill: var(--color-primary-100);
 }
-.votes-icon2:active {
-  fill: var(--dl-color-primary-100);
+.dislike-icon:active {
+  transform: rotate(-30deg);
 }
-.votes-text1 {
-  color: var(--dl-color-primary-100);
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 900;
+.dislikes-color {
+  color: var(--color-primary-100);
 }
 .votes-root-class-name {
   align-self: center;
 }
 @media(max-width: 767px) {
+  .votes-rate-text {
+    font-size: var(--font-size-small);
+    font-style: normal;
+  }
+  
+  .like-icon {
+    margin-left: var(--space-space-halfunit);
+    margin-right: var(--space-space-halfunit);
+  }
+  .dislike-icon {
+    margin-left: var(--space-space-halfunit);
+    margin-right: var(--space-space-halfunit);
+  }
+}
+
+@media(max-width: 479px) {
   .votes-votes {
-    width: auto;
-  }
-  .votes-icon {
-    margin-left: var(--dl-space-space-halfunit);
-    margin-right: var(--dl-space-space-halfunit);
-  }
-  .votes-icon2 {
-    margin-left: var(--dl-space-space-halfunit);
-    margin-right: var(--dl-space-space-halfunit);
+    align-self: center;
   }
 }

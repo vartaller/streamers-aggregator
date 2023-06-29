@@ -2,39 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Votes from '../votes/votes';
 import './card.css';
-
-type StreamerCardProps = {
-  rootClassName?: string;
-  image_src?: string;
-  image_alt?: string;
-  title?: string;
-  description?: string;
-  platform?: string;
-};
+import { PLATFORM_IMG } from '../../utils/constants/platforms';
+import { StreamerCardProps } from './cart.type';
 
 const StreamerCard: React.FC<StreamerCardProps> = ({
-  rootClassName = '',
-  image_src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDd8fHBvcnRyYWl0fGVufDB8fHx8MTYyNjM3ODk3Mg&ixlib=rb-1.2.1&w=1000',
-  image_alt = 'image',
-  title = 'Lorem ipsum dolor sit amet',
-  description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non volutpat turpis. Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor. Lorem ipsum dolor sit amet, consectetur adipiscing ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non volutpat turpis. Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor. Lorem ipsum dolor sit amet, consectetur adipiscing ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non volutpat turpis. Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor. Lorem ipsum dolor sit amet, consectetur adipiscing ... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non volutpat turpis. Mauris luctus rutrum mi ut rhoncus. Integer in dignissim tortor. Lorem ipsum dolor sit amet, consectetur adipiscing ...',
-  platform = 'Twitch',
+  id,
+  fullName,
+  img,
+  info,
+  platform,
+  likes,
+  dislikes,
 }) => {
   return (
-    <div className={`card-blog-post-card ${rootClassName}`}>
-      <img alt={image_alt} src={image_src} className="card-image" />
+    <div className={`card-blog-post-card`}>
+      <img alt={fullName} src={img} className="card-image" />
       <div className="card-container">
-        <Votes></Votes>
-        <h1 className="card-name">{title}</h1>
-        <span className="card-text">{description}</span>
-        <div className="card-container1">
+        <Votes upvotes={likes} downvotes={dislikes} streamerId={id}></Votes>
+        <h1 className="card-name">{fullName}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: info.replace(/(?:\r\n|\r|\n)/g, '<br />'),
+          }}
+          className="card-text"
+        ></div>
+        <div className="card-container-platform">
           <div className="card-profile">
             <img
-              alt="twitch"
-              src="https://avatars.githubusercontent.com/u/1795021?s=280&amp;v=4"
-              className="card-image1"
+              alt={platform}
+              src={PLATFORM_IMG[platform]}
+              className="card-image-platform"
             />
-            <span className="card-text1">{platform}</span>
+            <span className="card-text-platform">{platform}</span>
           </div>
         </div>
       </div>
@@ -43,12 +42,13 @@ const StreamerCard: React.FC<StreamerCardProps> = ({
 };
 
 StreamerCard.propTypes = {
-  rootClassName: PropTypes.string,
-  image_src: PropTypes.string,
-  image_alt: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  platform: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  fullName: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  info: PropTypes.string.isRequired,
+  platform: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
+  dislikes: PropTypes.number.isRequired,
 };
 
 export default StreamerCard;
