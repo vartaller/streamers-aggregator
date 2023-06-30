@@ -16,6 +16,8 @@ async function bootstrap() {
       'Origin, X-Requested-With, Content-Type, Accept, X-App-Token',
   });
 
-  await app.listen(3001, () => console.log(`App started on port: 3001`));
+  await app.listen(process.env.SERVER_PORT, () =>
+    console.log(`App started on port: ${process.env.SERVER_PORT}`)
+  );
 }
 bootstrap();
