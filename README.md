@@ -1,7 +1,4 @@
-# Streamer Platform Prototype
-
-![Streamer Platform](image1.png)
-![Streamer Ratings](image2.png)
+# Streamer Aggregator
 
 This is a prototype of a streamer platform fragment, where you can add streamers, rate them, view their ratings, and read information about them.
 
