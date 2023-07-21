@@ -27,8 +27,11 @@ To run the project, perform the following steps:
 ![Streamer Platform](Home.png)
 *Screenshot 1: Home page*
 
-![Streamer Ratings](Profile.png)
-*Screenshot 2: Profile page*
+![Streamer Ratings](Profile.jpg)
+*Screenshot 2: Profile card*
+
+![Streamer Streams](Stream.jpg)
+*Screenshot 3: Streams list*
 
 ## Technologies Used
 

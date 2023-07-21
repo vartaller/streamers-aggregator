@@ -1,0 +1,19 @@
+.streams-list-container {
+  width: 100%;
+  height: auto;
+  max-height: var(--size-size-maxwidth);
+  max-width: var(--size-width-max);
+  display: flex;
+  padding-top: var(--space-space-oneandhalfunits);
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-gray-white);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.streams-list-heading {
+  font-size: var(--font-size-medium);
+  text-align: center;
+}

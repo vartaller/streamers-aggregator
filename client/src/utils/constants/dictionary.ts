@@ -13,6 +13,15 @@ export const TEXT = {
     PLACEHOLDER_PHOTO_LINK: 'Photo link',
     PLACEHOLDER_DESCRIPTION: "Streamer's description",
   },
+  FORM_STREAM: {
+    HEADING: 'Add new stream',
+    TYPE_TITLE: "Type stream's title:",
+    TYPE_DESCRIPTION: "Type stream's description:",
+    SELECT_TIME_START: 'Stream started at:',
+    SELECT_TIME_END: 'Stream ended at:',
+    TYPE_AVERAGE_VIEWERS: "Type stream's average viewers:",
+    TYPE_GAME: "Type game's name:",
+  },
   LIST: {
     READ_MORE_BTN: 'Read More ->',
   },

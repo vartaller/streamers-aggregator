@@ -28,6 +28,21 @@ model Streamer {
   dislikes  Int?     @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  stream    Stream[]
 
   @@map("Streamer")
+}
+
+model Stream {
+  id             Int      @id @default(autoincrement())
+  title          String
+  description    String
+  startedAt      DateTime
+  endedAt        DateTime
+  averageViewers Int
+  game           String
+  streamer       Streamer @relation(fields: [streamerId], references: [id])
+  streamerId     Int
+
+  @@map("Stream")
 }

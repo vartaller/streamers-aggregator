@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { StreamerService } from './streamer.service';
 import { PrismaService } from '../../services/prisma.service';
 import StreamerDto from '../../utils/interface/streamer.dto';
+import StreamDto from '../../utils/interface/stream.dto';
 import { ERRORS } from '../../utils/constants/errors';
 
 describe('StreamerService', () => {
@@ -17,6 +18,10 @@ describe('StreamerService', () => {
           useValue: {
             streamer: {
               findUnique: jest.fn(),
+            },
+            stream: {
+              create: jest.fn(),
+              findMany: jest.fn(),
             },
           },
         },
@@ -57,13 +62,36 @@ describe('StreamerService', () => {
       });
     });
 
+    it('should throw error when getting streams for non-existing streamer', async () => {
+      const streamerId = 999;
+      await expect(
+        service.getStreamsByStreamerId(streamerId)
+      ).rejects.toThrowError(ERRORS.STREAMER.GET_STREAMS_FAILED);
+    });
+
+    it('should add a new stream', async () => {
+      const streamDto: StreamDto | any = {
+        id: 1,
+        title: 'New Stream',
+        description: 'New Stream Description',
+        startedAt: new Date(),
+        endedAt: new Date(),
+        averageViewers: 500,
+        game: 'New Game',
+        streamerId: 1,
+      };
+
+      const result = await service.addNewStream(streamDto);
+      expect(result).toBe(true);
+    });
+
     it('should throw an error if getting streamer info fails', async () => {
       jest
         .spyOn(prismaService.streamer, 'findUnique')
         .mockRejectedValueOnce(new Error());
 
       await expect(service.getStreamerInfo(1)).rejects.toThrowError(
-        ERRORS.STREAMER.GET_RECORD_FAILED
+        ERRORS.STREAMER.GET_INFO_FAILED
       );
 
       expect(prismaService.streamer.findUnique).toHaveBeenCalledWith({

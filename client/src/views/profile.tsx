@@ -3,8 +3,12 @@ import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import Header from '../components/header/header';
 import StreamerCard from '../components/card/card';
+import StreamsList from '../components/listStreams/list';
+import StreamSubmitForm from '../components/formStream/form';
 import './profile.css';
 import { getStreamerInfo } from '../utils/crud/getStreamerInfo';
+import { getStreamesByStreamerId } from '../utils/crud/getStreamesByStreamerId';
+import StreamDto from '../utils/interface/stream.dto';
 import StreamerDto from '../utils/interface/streamer.dto';
 import { TEXT } from '../utils/constants/dictionary';
 
@@ -13,13 +17,17 @@ const Profile: React.FC = () => {
     name: string;
     id: string;
   };
+  const [streamsList, setStreamsList] = useState<StreamDto[]>([]);
   const [streamerInfo, setStreamersInfo] = useState<StreamerDto>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   async function fetchData() {
     try {
-      const result = await getStreamerInfo(id);
-      setStreamersInfo(result);
+      const streamerInfo = await getStreamerInfo(id);
+      setStreamersInfo(streamerInfo);
+      const streamerStreams = await getStreamesByStreamerId(id);
+      setStreamsList(streamerStreams);
+      console.log(streamerStreams);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -28,7 +36,7 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="profile-container">
@@ -55,6 +63,12 @@ const Profile: React.FC = () => {
         {isLoading && (
           <div className="loading-container">{TEXT.MSG.LOADING}</div>
         )}
+      </div>
+      <div className="card-page">
+        <StreamSubmitForm streamerId={id} fetchData={fetchData} />
+      </div>
+      <div className="card-page">
+        <StreamsList streamsList={streamsList} />
       </div>
     </div>
   );

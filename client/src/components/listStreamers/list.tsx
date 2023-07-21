@@ -1,5 +1,5 @@
 import React from 'react';
-import StreamersRow from '../row/row';
+import StreamersRow from '../rowStreamers/row';
 import './list.css';
 import { StreamersListProps } from './list.type';
 

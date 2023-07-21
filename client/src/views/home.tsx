@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Header from '../components/header/header';
-import StreamerSubmitForm from '../components/form/form';
-import StreamersList from '../components/list/list';
+import StreamerSubmitForm from '../components/formStreamer/form';
+import StreamersList from '../components/listStreamers/list';
 import './home.css';
 import { getStreamersList } from '../utils/crud/getStreamersList';
 import StreamerDto from '../utils/interface/streamer.dto';

@@ -29,11 +29,12 @@
 
 .card-name {
   margin-bottom: var(--space-space-twounits);
+  font-size: var(--font-size-medium);
 }
 
 .card-text {
   color: var(--color-gray-500);
-  font-size: var(--font-size-medium);
+  font-size: var(--font-size-small);
   margin-bottom: var(--space-space-twounits);
   word-wrap: break-word;
 }
